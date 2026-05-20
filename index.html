@@ -264,16 +264,49 @@ input[type=“email”],
 input[type=“tel”],
 textarea,
 select {
-width: 100%;
+-webkit-appearance: none !important;
+-moz-appearance: none !important;
+appearance: none !important;
+width: 100% !important;
+max-width: 100%;
+min-width: 0;
+display: block;
 padding: 12px 14px;
-background: rgba(10, 1, 24, 0.7);
+background: rgba(10, 1, 24, 0.85) !important;
+background-color: rgba(10, 1, 24, 0.85) !important;
 border: 1px solid rgba(0, 240, 255, 0.4);
-color: #f4e8ff;
+border-radius: 0;
+color: #f4e8ff !important;
 font-family: ‘Rajdhani’, sans-serif;
-font-size: 1.05rem;
+font-size: 16px; /* prevents iOS zoom on focus */
 font-weight: 500;
 transition: all 0.2s ease;
 outline: none;
+box-sizing: border-box;
+}
+@media (min-width: 640px) {
+input[type=“text”],
+input[type=“number”],
+input[type=“email”],
+input[type=“tel”],
+textarea,
+select { font-size: 1.05rem; }
+}
+/* iOS Safari extras */
+input[type=“number”] {
+-moz-appearance: textfield;
+}
+input[type=“number”]::-webkit-outer-spin-button,
+input[type=“number”]::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+-webkit-text-fill-color: #f4e8ff;
+-webkit-box-shadow: 0 0 0 1000px rgba(10, 1, 24, 0.95) inset;
+transition: background-color 5000s ease-in-out 0s;
 }
 input:focus, textarea:focus, select:focus {
 border-color: #ff3cac;
