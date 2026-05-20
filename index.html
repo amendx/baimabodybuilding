@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
@@ -21,513 +20,511 @@
     position: relative;
   }
 
-/* ––––– BACKGROUND: SUN + GRID + STARS ––––– */
-.scene {
-position: fixed;
-inset: 0;
-z-index: 0;
-pointer-events: none;
-overflow: hidden;
-}
-.sky {
-position: absolute;
-inset: 0;
-background:
-radial-gradient(ellipse 90% 70% at 50% 35%, rgba(255, 60, 172, 0.18) 0%, transparent 60%),
-radial-gradient(ellipse 80% 50% at 50% 0%, rgba(126, 34, 206, 0.35) 0%, transparent 70%),
-linear-gradient(180deg, #1a0033 0%, #2d0b4e 35%, #0a0118 70%);
-}
-.stars {
-position: absolute;
-inset: 0;
-background-image:
-radial-gradient(1px 1px at 20% 15%, #fff, transparent),
-radial-gradient(1px 1px at 80% 25%, #ffe4ff, transparent),
-radial-gradient(1px 1px at 35% 8%, #fff, transparent),
-radial-gradient(2px 2px at 65% 12%, #fff8ff, transparent),
-radial-gradient(1px 1px at 90% 18%, #fff, transparent),
-radial-gradient(1px 1px at 10% 30%, #fff, transparent),
-radial-gradient(1px 1px at 50% 5%, #ffe4ff, transparent),
-radial-gradient(1px 1px at 75% 35%, #fff, transparent),
-radial-gradient(2px 2px at 15% 20%, #fff, transparent),
-radial-gradient(1px 1px at 95% 8%, #ffd6ff, transparent);
-background-size: 100% 60%;
-background-repeat: no-repeat;
-animation: twinkle 4s ease-in-out infinite alternate;
-}
-@keyframes twinkle {
-0% { opacity: 0.4; }
-100% { opacity: 1; }
-}
-.sun {
-position: absolute;
-left: 50%;
-top: 32%;
-transform: translate(-50%, -50%);
-width: min(420px, 70vw);
-height: min(420px, 70vw);
-border-radius: 50%;
-background: linear-gradient(180deg, #ffe24d 0%, #ff6ec7 50%, #b13ad6 100%);
-box-shadow:
-0 0 80px rgba(255, 110, 199, 0.6),
-0 0 160px rgba(177, 58, 214, 0.4);
-filter: blur(0.5px);
-opacity: 0.85;
-}
-.sun::before {
-content: “”;
-position: absolute;
-inset: 0;
-border-radius: 50%;
-background:
-repeating-linear-gradient(
-0deg,
-transparent 0px,
-transparent 14px,
-#0a0118 14px,
-#0a0118 18px,
-transparent 18px,
-transparent 28px,
-#0a0118 28px,
-#0a0118 34px,
-transparent 34px,
-transparent 48px,
-#0a0118 48px,
-#0a0118 56px,
-transparent 56px,
-transparent 75px,
-#0a0118 75px,
-#0a0118 86px
-);
-mask: radial-gradient(circle, #000 60%, transparent 100%);
--webkit-mask: radial-gradient(circle, #000 60%, transparent 100%);
-clip-path: inset(50% 0 0 0);
-}
-.grid {
-position: absolute;
-left: 50%;
-bottom: -10%;
-width: 250%;
-height: 60%;
-transform: translateX(-50%) perspective(600px) rotateX(60deg);
-transform-origin: center top;
-background-image:
-linear-gradient(to right, rgba(255, 0, 200, 0.6) 1px, transparent 1px),
-linear-gradient(to bottom, rgba(0, 220, 255, 0.6) 1px, transparent 1px);
-background-size: 60px 60px;
-animation: gridScroll 4s linear infinite;
-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 100%);
--webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 100%);
-}
-@keyframes gridScroll {
-0% { background-position: 0 0; }
-100% { background-position: 0 60px; }
-}
-.scanlines {
-position: fixed;
-inset: 0;
-z-index: 100;
-pointer-events: none;
-background: repeating-linear-gradient(
-0deg,
-rgba(255, 255, 255, 0.02) 0px,
-rgba(255, 255, 255, 0.02) 1px,
-transparent 1px,
-transparent 3px
-);
-mix-blend-mode: overlay;
-}
+  /* ---------- BACKGROUND: SUN + GRID + STARS ---------- */
+  .scene {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .sky {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 35%, rgba(255, 60, 172, 0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(126, 34, 206, 0.35) 0%, transparent 70%),
+      linear-gradient(180deg, #1a0033 0%, #2d0b4e 35%, #0a0118 70%);
+  }
+  .stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 15%, #fff, transparent),
+      radial-gradient(1px 1px at 80% 25%, #ffe4ff, transparent),
+      radial-gradient(1px 1px at 35% 8%, #fff, transparent),
+      radial-gradient(2px 2px at 65% 12%, #fff8ff, transparent),
+      radial-gradient(1px 1px at 90% 18%, #fff, transparent),
+      radial-gradient(1px 1px at 10% 30%, #fff, transparent),
+      radial-gradient(1px 1px at 50% 5%, #ffe4ff, transparent),
+      radial-gradient(1px 1px at 75% 35%, #fff, transparent),
+      radial-gradient(2px 2px at 15% 20%, #fff, transparent),
+      radial-gradient(1px 1px at 95% 8%, #ffd6ff, transparent);
+    background-size: 100% 60%;
+    background-repeat: no-repeat;
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+  .sun {
+    position: absolute;
+    left: 50%;
+    top: 32%;
+    transform: translate(-50%, -50%);
+    width: min(420px, 70vw);
+    height: min(420px, 70vw);
+    border-radius: 50%;
+    background: linear-gradient(180deg, #ffe24d 0%, #ff6ec7 50%, #b13ad6 100%);
+    box-shadow:
+      0 0 80px rgba(255, 110, 199, 0.6),
+      0 0 160px rgba(177, 58, 214, 0.4);
+    filter: blur(0.5px);
+    opacity: 0.85;
+  }
+  .sun::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 14px,
+        #0a0118 14px,
+        #0a0118 18px,
+        transparent 18px,
+        transparent 28px,
+        #0a0118 28px,
+        #0a0118 34px,
+        transparent 34px,
+        transparent 48px,
+        #0a0118 48px,
+        #0a0118 56px,
+        transparent 56px,
+        transparent 75px,
+        #0a0118 75px,
+        #0a0118 86px
+      );
+    mask: radial-gradient(circle, #000 60%, transparent 100%);
+    -webkit-mask: radial-gradient(circle, #000 60%, transparent 100%);
+    clip-path: inset(50% 0 0 0);
+  }
+  .grid {
+    position: absolute;
+    left: 50%;
+    bottom: -10%;
+    width: 250%;
+    height: 60%;
+    transform: translateX(-50%) perspective(600px) rotateX(60deg);
+    transform-origin: center top;
+    background-image:
+      linear-gradient(to right, rgba(255, 0, 200, 0.6) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 220, 255, 0.6) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridScroll 4s linear infinite;
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 100%);
+  }
+  @keyframes gridScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 60px; }
+  }
+  .scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    mix-blend-mode: overlay;
+  }
 
-/* ––––– LAYOUT ––––– */
-.wrap {
-position: relative;
-z-index: 2;
-max-width: 880px;
-margin: 0 auto;
-padding: 60px 24px 120px;
-}
+  /* ---------- LAYOUT ---------- */
+  .wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 60px 24px 120px;
+  }
 
-/* ––––– HERO ––––– */
-.hero {
-text-align: center;
-margin-bottom: 70px;
-padding-top: 40px;
-}
-.tag {
-display: inline-block;
-font-family: ‘Audiowide’, sans-serif;
-font-size: 0.75rem;
-letter-spacing: 0.4em;
-color: #00f0ff;
-padding: 6px 18px;
-border: 1px solid #00f0ff;
-margin-bottom: 28px;
-text-shadow: 0 0 10px #00f0ff;
-box-shadow: 0 0 20px rgba(0, 240, 255, 0.3), inset 0 0 20px rgba(0, 240, 255, 0.1);
-}
-h1 {
-font-family: ‘Monoton’, cursive;
-font-size: clamp(2.6rem, 9vw, 5.5rem);
-line-height: 0.95;
-color: #ff3cac;
-text-shadow:
-0 0 12px #ff3cac,
-0 0 32px rgba(255, 60, 172, 0.6),
-2px 2px 0 #00f0ff,
-4px 4px 0 rgba(126, 34, 206, 0.8);
-letter-spacing: 0.05em;
-margin-bottom: 14px;
-font-weight: 400;
-}
-@media (min-width: 640px) {
-h1 {
-text-shadow:
-0 0 12px #ff3cac,
-0 0 32px rgba(255, 60, 172, 0.6),
-4px 4px 0 #00f0ff,
-8px 8px 0 rgba(126, 34, 206, 0.8);
-}
-}
-.subtitle {
-font-family: ‘Audiowide’, sans-serif;
-font-size: clamp(0.85rem, 2.2vw, 1.05rem);
-color: #f4e8ff;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-opacity: 0.85;
-}
-.subtitle span { color: #ffe24d; }
-.hero-divider {
-margin: 36px auto 0;
-width: 200px;
-height: 2px;
-background: linear-gradient(90deg, transparent, #ff3cac, #00f0ff, transparent);
-box-shadow: 0 0 12px rgba(255, 60, 172, 0.8);
-}
+  /* ---------- HERO ---------- */
+  .hero {
+    text-align: center;
+    margin-bottom: 70px;
+    padding-top: 40px;
+  }
+  .tag {
+    display: inline-block;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: #00f0ff;
+    padding: 6px 18px;
+    border: 1px solid #00f0ff;
+    margin-bottom: 28px;
+    text-shadow: 0 0 10px #00f0ff;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3), inset 0 0 20px rgba(0, 240, 255, 0.1);
+  }
+  h1 {
+    font-family: 'Monoton', cursive;
+    font-size: clamp(2.6rem, 9vw, 5.5rem);
+    line-height: 0.95;
+    color: #ff3cac;
+    text-shadow:
+      0 0 12px #ff3cac,
+      0 0 32px rgba(255, 60, 172, 0.6),
+      2px 2px 0 #00f0ff,
+      4px 4px 0 rgba(126, 34, 206, 0.8);
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+  @media (min-width: 640px) {
+    h1 {
+      text-shadow:
+        0 0 12px #ff3cac,
+        0 0 32px rgba(255, 60, 172, 0.6),
+        4px 4px 0 #00f0ff,
+        8px 8px 0 rgba(126, 34, 206, 0.8);
+    }
+  }
+  .subtitle {
+    font-family: 'Audiowide', sans-serif;
+    font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+    color: #f4e8ff;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .subtitle span { color: #ffe24d; }
+  .hero-divider {
+    margin: 36px auto 0;
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff3cac, #00f0ff, transparent);
+    box-shadow: 0 0 12px rgba(255, 60, 172, 0.8);
+  }
 
-/* ––––– SECTION ––––– */
-.section {
-position: relative;
-margin-bottom: 36px;
-background: rgba(20, 5, 40, 0.7);
-border: 1px solid rgba(255, 60, 172, 0.35);
-backdrop-filter: blur(8px);
--webkit-backdrop-filter: blur(8px);
-padding: 32px 28px 28px;
-box-shadow:
-0 0 40px rgba(255, 60, 172, 0.12),
-inset 0 0 60px rgba(126, 34, 206, 0.08);
-}
-.section::before {
-content: “”;
-position: absolute;
-top: -1px; left: -1px; right: -1px;
-height: 3px;
-background: linear-gradient(90deg, #ff3cac 0%, #00f0ff 100%);
-box-shadow: 0 0 12px #ff3cac;
-}
-.section-head {
-display: flex;
-align-items: center;
-gap: 16px;
-margin-bottom: 26px;
-}
-.section-num {
-font-family: ‘Monoton’, cursive;
-font-size: 2.4rem;
-color: #00f0ff;
-text-shadow: 0 0 10px #00f0ff, 2px 2px 0 #ff3cac;
-line-height: 1;
-}
-.section-title {
-font-family: ‘Audiowide’, sans-serif;
-font-size: 1.4rem;
-color: #ffe24d;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-text-shadow: 0 0 8px rgba(255, 226, 77, 0.6);
-}
+  /* ---------- SECTION ---------- */
+  .section {
+    position: relative;
+    margin-bottom: 36px;
+    background: rgba(20, 5, 40, 0.7);
+    border: 1px solid rgba(255, 60, 172, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 32px 28px 28px;
+    box-shadow:
+      0 0 40px rgba(255, 60, 172, 0.12),
+      inset 0 0 60px rgba(126, 34, 206, 0.08);
+  }
+  .section::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff3cac 0%, #00f0ff 100%);
+    box-shadow: 0 0 12px #ff3cac;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+  .section-num {
+    font-family: 'Monoton', cursive;
+    font-size: 2.4rem;
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff, 2px 2px 0 #ff3cac;
+    line-height: 1;
+  }
+  .section-title {
+    font-family: 'Audiowide', sans-serif;
+    font-size: 1.4rem;
+    color: #ffe24d;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(255, 226, 77, 0.6);
+  }
 
-/* ––––– FORM ––––– */
-.field { margin-bottom: 22px; }
-.row { display: grid; gap: 22px; grid-template-columns: 1fr; }
-@media (min-width: 640px) {
-.row.cols-2 { grid-template-columns: 1fr 1fr; }
-.row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
-}
+  /* ---------- FORM ---------- */
+  .field { margin-bottom: 22px; }
+  .row { display: grid; gap: 22px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) {
+    .row.cols-2 { grid-template-columns: 1fr 1fr; }
+    .row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+  }
 
-label {
-display: block;
-font-family: ‘Audiowide’, sans-serif;
-font-size: 0.78rem;
-color: #00f0ff;
-letter-spacing: 0.18em;
-text-transform: uppercase;
-margin-bottom: 10px;
-text-shadow: 0 0 6px rgba(0, 240, 255, 0.5);
-}
-label .req { color: #ff3cac; margin-left: 4px; }
+  label {
+    display: block;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 0.78rem;
+    color: #00f0ff;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 0 6px rgba(0, 240, 255, 0.5);
+  }
+  label .req { color: #ff3cac; margin-left: 4px; }
 
-input[type=“text”],
-input[type=“number”],
-input[type=“email”],
-input[type=“tel”],
-input[type=“search”],
-textarea,
-select {
--webkit-appearance: none !important;
--moz-appearance: none !important;
-appearance: none !important;
-width: 100% !important;
-max-width: 100%;
-min-width: 0;
-display: block;
-padding: 12px 14px;
-background: #14082a !important;
-background-color: #14082a !important;
-background-image: none !important;
-border: 1px solid rgba(0, 240, 255, 0.4);
-border-radius: 0;
-color: #f4e8ff !important;
--webkit-text-fill-color: #f4e8ff !important;
-font-family: ‘Rajdhani’, sans-serif;
-font-size: 16px; /* prevents iOS zoom on focus */
-font-weight: 500;
-transition: all 0.2s ease;
-outline: none;
-box-sizing: border-box;
-caret-color: #ff3cac;
-}
-@media (min-width: 640px) {
-input[type=“text”],
-input[type=“number”],
-input[type=“email”],
-input[type=“tel”],
-input[type=“search”],
-textarea,
-select { font-size: 1.05rem; }
-}
-/* iOS Safari extras */
-input[type=“number”] {
--moz-appearance: textfield;
-}
-input[type=“number”]::-webkit-outer-spin-button,
-input[type=“number”]::-webkit-inner-spin-button {
--webkit-appearance: none;
-margin: 0;
-}
-/* Kill Safari autofill yellow/white background */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
--webkit-text-fill-color: #f4e8ff !important;
--webkit-box-shadow: 0 0 0 1000px #14082a inset !important;
-box-shadow: 0 0 0 1000px #14082a inset !important;
-background-color: #14082a !important;
-background-clip: content-box !important;
-transition: background-color 5000s ease-in-out 0s;
-caret-color: #ff3cac;
-}
-input:focus, textarea:focus, select:focus {
-border-color: #ff3cac;
-box-shadow: 0 0 0 1px #ff3cac, 0 0 16px rgba(255, 60, 172, 0.4);
-background: rgba(20, 5, 40, 0.9);
-}
-input::placeholder, textarea::placeholder {
-color: rgba(244, 232, 255, 0.35);
-font-style: italic;
-}
-textarea {
-resize: vertical;
-min-height: 90px;
-font-family: ‘Rajdhani’, sans-serif;
-}
-select {
-appearance: none;
--webkit-appearance: none;
-background-image: url(“data:image/svg+xml;charset=UTF-8,%3csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘12’ height=‘8’ viewBox=‘0 0 12 8’%3e%3cpath d=‘M1 1l5 5 5-5’ stroke=’%2300f0ff’ stroke-width=‘2’ fill=‘none’/%3e%3c/svg%3e”);
-background-repeat: no-repeat;
-background-position: right 14px center;
-padding-right: 38px;
-cursor: pointer;
-}
-select option { background: #1a0033; color: #f4e8ff; }
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="search"],
+  textarea,
+  select {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
+    display: block;
+    padding: 12px 14px;
+    background: #14082a !important;
+    background-color: #14082a !important;
+    background-image: none !important;
+    border: 1px solid rgba(0, 240, 255, 0.4);
+    border-radius: 0;
+    color: #f4e8ff !important;
+    -webkit-text-fill-color: #f4e8ff !important;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px; /* prevents iOS zoom on focus */
+    font-weight: 500;
+    transition: all 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+    caret-color: #ff3cac;
+  }
+  @media (min-width: 640px) {
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="search"],
+    textarea,
+    select { font-size: 1.05rem; }
+  }
+  /* iOS Safari extras */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Kill Safari autofill yellow/white background */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #f4e8ff !important;
+    -webkit-box-shadow: 0 0 0 1000px #14082a inset !important;
+    box-shadow: 0 0 0 1000px #14082a inset !important;
+    background-color: #14082a !important;
+    background-clip: content-box !important;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: #ff3cac;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: #ff3cac;
+    box-shadow: 0 0 0 1px #ff3cac, 0 0 16px rgba(255, 60, 172, 0.4);
+    background: rgba(20, 5, 40, 0.9);
+  }
+  input::placeholder, textarea::placeholder {
+    color: rgba(244, 232, 255, 0.35);
+    font-style: italic;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 90px;
+    font-family: 'Rajdhani', sans-serif;
+  }
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3e%3cpath d='M1 1l5 5 5-5' stroke='%2300f0ff' stroke-width='2' fill='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 38px;
+    cursor: pointer;
+  }
+  select option { background: #1a0033; color: #f4e8ff; }
 
-/* ––––– RADIO / CHECKBOX GROUPS ––––– */
-.options {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-}
-.opt {
-position: relative;
-flex: 1 1 auto;
-min-width: 130px;
-}
-.opt input {
-position: absolute;
-opacity: 0;
-pointer-events: none;
-}
-.opt label {
-display: block;
-cursor: pointer;
-padding: 12px 14px;
-background: rgba(10, 1, 24, 0.6);
-border: 1px solid rgba(0, 240, 255, 0.3);
-color: #f4e8ff;
-font-family: ‘Rajdhani’, sans-serif;
-font-size: 1rem;
-font-weight: 600;
-letter-spacing: 0.05em;
-text-transform: none;
-text-align: center;
-transition: all 0.2s ease;
-margin-bottom: 0;
-text-shadow: none;
-}
-.opt input:checked + label {
-background: linear-gradient(135deg, rgba(255, 60, 172, 0.3) 0%, rgba(126, 34, 206, 0.3) 100%);
-border-color: #ff3cac;
-color: #ffe24d;
-text-shadow: 0 0 8px rgba(255, 226, 77, 0.6);
-box-shadow: 0 0 16px rgba(255, 60, 172, 0.4), inset 0 0 16px rgba(255, 60, 172, 0.1);
-}
-.opt label:hover { border-color: rgba(255, 60, 172, 0.6); }
+  /* ---------- RADIO / CHECKBOX GROUPS ---------- */
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .opt {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 130px;
+  }
+  .opt input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .opt label {
+    display: block;
+    cursor: pointer;
+    padding: 12px 14px;
+    background: rgba(10, 1, 24, 0.6);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    color: #f4e8ff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    text-align: center;
+    transition: all 0.2s ease;
+    margin-bottom: 0;
+    text-shadow: none;
+  }
+  .opt input:checked + label {
+    background: linear-gradient(135deg, rgba(255, 60, 172, 0.3) 0%, rgba(126, 34, 206, 0.3) 100%);
+    border-color: #ff3cac;
+    color: #ffe24d;
+    text-shadow: 0 0 8px rgba(255, 226, 77, 0.6);
+    box-shadow: 0 0 16px rgba(255, 60, 172, 0.4), inset 0 0 16px rgba(255, 60, 172, 0.1);
+  }
+  .opt label:hover { border-color: rgba(255, 60, 172, 0.6); }
 
-/* ––––– CONDITIONAL ––––– */
-.conditional {
-margin-top: 14px;
-max-height: 0;
-overflow: hidden;
-transition: max-height 0.3s ease, margin-top 0.3s ease;
-}
-.conditional.show { max-height: 200px; margin-top: 14px; }
+  /* ---------- CONDITIONAL ---------- */
+  .conditional {
+    margin-top: 14px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+  }
+  .conditional.show { max-height: 200px; margin-top: 14px; }
 
-/* ––––– SUBMIT ––––– */
-.submit-wrap {
-margin-top: 50px;
-text-align: center;
-}
-button[type=“submit”] {
-position: relative;
-font-family: ‘Monoton’, cursive;
-font-size: 1.6rem;
-letter-spacing: 0.1em;
-padding: 18px 60px;
-background: linear-gradient(135deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
-color: #fff;
-border: none;
-cursor: pointer;
-text-transform: uppercase;
-text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
-box-shadow:
-0 0 30px rgba(255, 60, 172, 0.6),
-0 8px 0 #1a0033,
-0 8px 30px rgba(255, 60, 172, 0.4);
-transition: all 0.15s ease;
-overflow: hidden;
-}
-button[type=“submit”]:hover {
-transform: translateY(2px);
-box-shadow:
-0 0 40px rgba(255, 60, 172, 0.8),
-0 6px 0 #1a0033,
-0 6px 30px rgba(255, 60, 172, 0.6);
-}
-button[type=“submit”]:active {
-transform: translateY(8px);
-box-shadow: 0 0 30px rgba(255, 60, 172, 0.6), 0 0 0 #1a0033;
-}
-button[type=“submit”]:disabled {
-opacity: 0.6;
-cursor: not-allowed;
-}
-.submit-hint {
-margin-top: 20px;
-font-family: ‘Audiowide’, sans-serif;
-font-size: 0.7rem;
-letter-spacing: 0.3em;
-color: #00f0ff;
-opacity: 0.7;
-text-transform: uppercase;
-}
+  /* ---------- SUBMIT ---------- */
+  .submit-wrap {
+    margin-top: 50px;
+    text-align: center;
+  }
+  button[type="submit"] {
+    position: relative;
+    font-family: 'Monoton', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 0.1em;
+    padding: 18px 60px;
+    background: linear-gradient(135deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    box-shadow:
+      0 0 30px rgba(255, 60, 172, 0.6),
+      0 8px 0 #1a0033,
+      0 8px 30px rgba(255, 60, 172, 0.4);
+    transition: all 0.15s ease;
+    overflow: hidden;
+  }
+  button[type="submit"]:hover {
+    transform: translateY(2px);
+    box-shadow:
+      0 0 40px rgba(255, 60, 172, 0.8),
+      0 6px 0 #1a0033,
+      0 6px 30px rgba(255, 60, 172, 0.6);
+  }
+  button[type="submit"]:active {
+    transform: translateY(8px);
+    box-shadow: 0 0 30px rgba(255, 60, 172, 0.6), 0 0 0 #1a0033;
+  }
+  button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .submit-hint {
+    margin-top: 20px;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: #00f0ff;
+    opacity: 0.7;
+    text-transform: uppercase;
+  }
 
-/* ––––– SUCCESS / ERROR ––––– */
-.status {
-display: none;
-margin-top: 30px;
-padding: 24px;
-text-align: center;
-font-family: ‘Audiowide’, sans-serif;
-letter-spacing: 0.1em;
-}
-.status.show { display: block; }
-.status.success {
-background: rgba(0, 255, 150, 0.1);
-border: 1px solid #00ff96;
-color: #00ff96;
-text-shadow: 0 0 10px #00ff96;
-box-shadow: 0 0 30px rgba(0, 255, 150, 0.3);
-}
-.status.error {
-background: rgba(255, 60, 60, 0.1);
-border: 1px solid #ff3c3c;
-color: #ff3c3c;
-text-shadow: 0 0 10px #ff3c3c;
-}
+  /* ---------- SUCCESS / ERROR ---------- */
+  .status {
+    display: none;
+    margin-top: 30px;
+    padding: 24px;
+    text-align: center;
+    font-family: 'Audiowide', sans-serif;
+    letter-spacing: 0.1em;
+  }
+  .status.show { display: block; }
+  .status.success {
+    background: rgba(0, 255, 150, 0.1);
+    border: 1px solid #00ff96;
+    color: #00ff96;
+    text-shadow: 0 0 10px #00ff96;
+    box-shadow: 0 0 30px rgba(0, 255, 150, 0.3);
+  }
+  .status.error {
+    background: rgba(255, 60, 60, 0.1);
+    border: 1px solid #ff3c3c;
+    color: #ff3c3c;
+    text-shadow: 0 0 10px #ff3c3c;
+  }
 
-/* ––––– FOOTER ––––– */
-footer {
-text-align: center;
-margin-top: 60px;
-font-family: ‘Audiowide’, sans-serif;
-font-size: 0.7rem;
-letter-spacing: 0.4em;
-color: rgba(244, 232, 255, 0.4);
-text-transform: uppercase;
-}
+  /* ---------- FOOTER ---------- */
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: rgba(244, 232, 255, 0.4);
+    text-transform: uppercase;
+  }
 
-/* ––––– ANIMATIONS ––––– */
-.section { animation: slideUp 0.6s ease backwards; }
-.section:nth-child(2) { animation-delay: 0.1s; }
-.section:nth-child(3) { animation-delay: 0.2s; }
-.section:nth-child(4) { animation-delay: 0.3s; }
-.section:nth-child(5) { animation-delay: 0.4s; }
-.section:nth-child(6) { animation-delay: 0.5s; }
-@keyframes slideUp {
-from { opacity: 0; transform: translateY(30px); }
-to { opacity: 1; transform: translateY(0); }
-}
-.hero { animation: fadeIn 0.8s ease; }
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
+  /* ---------- ANIMATIONS ---------- */
+  .section { animation: slideUp 0.6s ease backwards; }
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.2s; }
+  .section:nth-child(4) { animation-delay: 0.3s; }
+  .section:nth-child(5) { animation-delay: 0.4s; }
+  .section:nth-child(6) { animation-delay: 0.5s; }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero { animation: fadeIn 0.8s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 
-/* ––––– MOBILE ––––– */
-@media (max-width: 640px) {
-.wrap { padding: 30px 16px 80px; }
-.section { padding: 24px 18px 22px; }
-.section-num { font-size: 2rem; }
-.section-title { font-size: 1.05rem; }
-.opt { min-width: 100%; }
-button[type=“submit”] { font-size: 1.3rem; padding: 16px 40px; }
-}
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 640px) {
+    .wrap { padding: 30px 16px 80px; }
+    .section { padding: 24px 18px 22px; }
+    .section-num { font-size: 2rem; }
+    .section-title { font-size: 1.05rem; }
+    .opt { min-width: 100%; }
+    button[type="submit"] { font-size: 1.3rem; padding: 16px 40px; }
+  }
 </style>
-
 </head>
 <body>
 
 <!-- SYNTHWAVE SCENE -->
-
 <div class="scene">
   <div class="sky"></div>
   <div class="stars"></div>
@@ -539,7 +536,6 @@ button[type=“submit”] { font-size: 1.3rem; padding: 16px 40px; }
 <div class="wrap">
 
   <!-- HERO -->
-
   <header class="hero">
     <div class="tag">SYSTEM ONLINE</div>
     <h1>Anamnese</h1>
@@ -549,274 +545,271 @@ button[type=“submit”] { font-size: 1.3rem; padding: 16px 40px; }
 
   <form id="anamnese" autocomplete="on">
 
-```
-<!-- 01 — DADOS BÁSICOS -->
-<div class="section">
-  <div class="section-head">
-    <div class="section-num">01</div>
-    <div class="section-title">Dados Básicos</div>
-  </div>
+    <!-- 01 — DADOS BÁSICOS -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">01</div>
+        <div class="section-title">Dados Básicos</div>
+      </div>
 
-  <div class="field">
-    <label for="nome">Nome completo <span class="req">*</span></label>
-    <input type="text" id="nome" name="nome" required placeholder="Seu nome">
-  </div>
+      <div class="field">
+        <label for="nome">Nome completo <span class="req">*</span></label>
+        <input type="text" id="nome" name="nome" required placeholder="Seu nome" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+      </div>
 
-  <div class="field">
-    <label for="email">E-mail <span class="req">*</span></label>
-    <input type="email" id="email" name="email" required placeholder="seu@email.com">
-  </div>
+      <div class="field">
+        <label for="email">E-mail <span class="req">*</span></label>
+        <input type="email" id="email" name="email" required placeholder="seu@email.com" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+      </div>
 
-  <div class="field">
-    <label for="whatsapp">WhatsApp</label>
-    <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000">
-  </div>
+      <div class="field">
+        <label for="whatsapp">WhatsApp</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+      </div>
 
-  <div class="row cols-3">
-    <div class="field">
-      <label for="idade">Idade <span class="req">*</span></label>
-      <input type="number" id="idade" name="idade" required min="10" max="100" placeholder="anos">
+      <div class="row cols-3">
+        <div class="field">
+          <label for="idade">Idade <span class="req">*</span></label>
+          <input type="number" id="idade" name="idade" required min="10" max="100" placeholder="anos" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+        </div>
+        <div class="field">
+          <label for="altura">Altura (cm) <span class="req">*</span></label>
+          <input type="number" id="altura" name="altura" required min="100" max="250" placeholder="ex: 175" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+        </div>
+        <div class="field">
+          <label for="peso">Peso (kg) <span class="req">*</span></label>
+          <input type="number" id="peso" name="peso" required min="30" max="300" step="0.1" placeholder="ex: 78.5" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Objetivo principal <span class="req">*</span></label>
+        <div class="options">
+          <div class="opt"><input type="radio" id="obj1" name="objetivo" value="Emagrecimento" required><label for="obj1">Emagrecimento</label></div>
+          <div class="opt"><input type="radio" id="obj2" name="objetivo" value="Hipertrofia"><label for="obj2">Hipertrofia</label></div>
+          <div class="opt"><input type="radio" id="obj3" name="objetivo" value="Definição"><label for="obj3">Definição</label></div>
+          <div class="opt"><input type="radio" id="obj4" name="objetivo" value="Performance"><label for="obj4">Performance</label></div>
+          <div class="opt"><input type="radio" id="obj5" name="objetivo" value="Saúde / qualidade de vida"><label for="obj5">Saúde / QV</label></div>
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <label for="altura">Altura (cm) <span class="req">*</span></label>
-      <input type="number" id="altura" name="altura" required min="100" max="250" placeholder="ex: 175">
+
+    <!-- 02 — ROTINA -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">02</div>
+        <div class="section-title">Rotina</div>
+      </div>
+
+      <div class="field">
+        <label for="profissao">Profissão</label>
+        <input type="text" id="profissao" name="profissao" placeholder="O que você faz?" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+      </div>
+
+      <div class="field">
+        <label>Trabalha sentado ou ativo?</label>
+        <div class="options">
+          <div class="opt"><input type="radio" id="trab1" name="trabalho" value="Sentado"><label for="trab1">Sentado</label></div>
+          <div class="opt"><input type="radio" id="trab2" name="trabalho" value="Ativo"><label for="trab2">Ativo</label></div>
+          <div class="opt"><input type="radio" id="trab3" name="trabalho" value="Misto"><label for="trab3">Misto</label></div>
+        </div>
+      </div>
+
+      <div class="row cols-2">
+        <div class="field">
+          <label for="sono">Horas de sono por noite</label>
+          <input type="number" id="sono" name="sono" min="1" max="14" step="0.5" placeholder="ex: 7" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+        </div>
+        <div class="field">
+          <label for="horario">Horário preferido pra treinar</label>
+          <select id="horario" name="horario" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+            <option value="">Selecione...</option>
+            <option>Manhã cedo (5h–8h)</option>
+            <option>Manhã (8h–11h)</option>
+            <option>Almoço (11h–14h)</option>
+            <option>Tarde (14h–18h)</option>
+            <option>Noite (18h–22h)</option>
+            <option>Madrugada</option>
+          </select>
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <label for="peso">Peso (kg) <span class="req">*</span></label>
-      <input type="number" id="peso" name="peso" required min="30" max="300" step="0.1" placeholder="ex: 78.5">
+
+    <!-- 03 — TREINO -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">03</div>
+        <div class="section-title">Treino</div>
+      </div>
+
+      <div class="field">
+        <label>Já treinou antes? <span class="req">*</span></label>
+        <div class="options">
+          <div class="opt"><input type="radio" id="treinou1" name="ja_treinou" value="Sim" required><label for="treinou1">Sim</label></div>
+          <div class="opt"><input type="radio" id="treinou2" name="ja_treinou" value="Não"><label for="treinou2">Não</label></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="dias">Dias por semana que consegue treinar <span class="req">*</span></label>
+        <select id="dias" name="dias_semana" required style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+          <option value="">Selecione...</option>
+          <option>1 dia</option>
+          <option>2 dias</option>
+          <option>3 dias</option>
+          <option>4 dias</option>
+          <option>5 dias</option>
+          <option>6 dias</option>
+          <option>7 dias</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Possui alguma lesão ou dor?</label>
+        <div class="options">
+          <div class="opt"><input type="radio" id="lesao1" name="lesao" value="Sim" data-toggle="lesao-detalhe"><label for="lesao1">Sim</label></div>
+          <div class="opt"><input type="radio" id="lesao2" name="lesao" value="Não" data-toggle="lesao-detalhe"><label for="lesao2">Não</label></div>
+        </div>
+        <div class="conditional" id="lesao-detalhe">
+          <input type="text" name="lesao_qual" placeholder="Qual lesão ou dor? Onde?" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Onde treina?</label>
+        <div class="options">
+          <div class="opt"><input type="radio" id="local1" name="local" value="Academia"><label for="local1">Academia</label></div>
+          <div class="opt"><input type="radio" id="local2" name="local" value="Casa"><label for="local2">Casa</label></div>
+          <div class="opt"><input type="radio" id="local3" name="local" value="Ar livre"><label for="local3">Ar livre</label></div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="field">
-    <label>Objetivo principal <span class="req">*</span></label>
-    <div class="options">
-      <div class="opt"><input type="radio" id="obj1" name="objetivo" value="Emagrecimento" required><label for="obj1">Emagrecimento</label></div>
-      <div class="opt"><input type="radio" id="obj2" name="objetivo" value="Hipertrofia"><label for="obj2">Hipertrofia</label></div>
-      <div class="opt"><input type="radio" id="obj3" name="objetivo" value="Definição"><label for="obj3">Definição</label></div>
-      <div class="opt"><input type="radio" id="obj4" name="objetivo" value="Performance"><label for="obj4">Performance</label></div>
-      <div class="opt"><input type="radio" id="obj5" name="objetivo" value="Saúde / qualidade de vida"><label for="obj5">Saúde / QV</label></div>
+    <!-- 04 — ALIMENTAÇÃO -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">04</div>
+        <div class="section-title">Alimentação</div>
+      </div>
+
+      <div class="field">
+        <label for="refeicoes">Quantas refeições por dia?</label>
+        <select id="refeicoes" name="refeicoes" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+          <option value="">Selecione...</option>
+          <option>1–2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6+</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="dificuldade">Tem dificuldade pra comer muito ou pouco?</label>
+        <textarea id="dificuldade" name="dificuldade_comer" placeholder="Conte um pouco sobre sua relação com a comida..." style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Restrição alimentar ou alergia?</label>
+        <div class="options">
+          <div class="opt"><input type="radio" id="rest1" name="restricao" value="Sim" data-toggle="rest-detalhe"><label for="rest1">Sim</label></div>
+          <div class="opt"><input type="radio" id="rest2" name="restricao" value="Não" data-toggle="rest-detalhe"><label for="rest2">Não</label></div>
+        </div>
+        <div class="conditional" id="rest-detalhe">
+          <input type="text" name="restricao_qual" placeholder="Qual restrição ou alergia?" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="gosta">Alimentos que gosta</label>
+        <textarea id="gosta" name="alimentos_gosta" placeholder="Liste os alimentos que você ama..." style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="nao_gosta">Alimentos que não gosta</label>
+        <textarea id="nao_gosta" name="alimentos_nao_gosta" placeholder="Liste os alimentos que detesta..." style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Consome álcool?</label>
+        <div class="options">
+          <div class="opt"><input type="radio" id="alc1" name="alcool" value="Sim"><label for="alc1">Sim</label></div>
+          <div class="opt"><input type="radio" id="alc2" name="alcool" value="Não"><label for="alc2">Não</label></div>
+          <div class="opt"><input type="radio" id="alc3" name="alcool" value="Socialmente"><label for="alc3">Socialmente</label></div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- 02 — ROTINA -->
-<div class="section">
-  <div class="section-head">
-    <div class="section-num">02</div>
-    <div class="section-title">Rotina</div>
-  </div>
+    <!-- 05 — SAÚDE -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">05</div>
+        <div class="section-title">Saúde</div>
+      </div>
 
-  <div class="field">
-    <label for="profissao">Profissão</label>
-    <input type="text" id="profissao" name="profissao" placeholder="O que você faz?">
-  </div>
+      <div class="field">
+        <label>Possui algum problema de saúde?</label>
+        <div class="options">
+          <div class="opt"><input type="radio" id="prob1" name="problema_saude" value="Sim" data-toggle="prob-detalhe"><label for="prob1">Sim</label></div>
+          <div class="opt"><input type="radio" id="prob2" name="problema_saude" value="Não" data-toggle="prob-detalhe"><label for="prob2">Não</label></div>
+        </div>
+        <div class="conditional" id="prob-detalhe">
+          <input type="text" name="problema_qual" placeholder="Qual problema de saúde?" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+        </div>
+      </div>
 
-  <div class="field">
-    <label>Trabalha sentado ou ativo?</label>
-    <div class="options">
-      <div class="opt"><input type="radio" id="trab1" name="trabalho" value="Sentado"><label for="trab1">Sentado</label></div>
-      <div class="opt"><input type="radio" id="trab2" name="trabalho" value="Ativo"><label for="trab2">Ativo</label></div>
-      <div class="opt"><input type="radio" id="trab3" name="trabalho" value="Misto"><label for="trab3">Misto</label></div>
+      <div class="field">
+        <label>Usa medicamentos ou hormônios?</label>
+        <div class="options">
+          <div class="opt"><input type="radio" id="med1" name="medicamentos" value="Sim" data-toggle="med-detalhe"><label for="med1">Sim</label></div>
+          <div class="opt"><input type="radio" id="med2" name="medicamentos" value="Não" data-toggle="med-detalhe"><label for="med2">Não</label></div>
+        </div>
+        <div class="conditional" id="med-detalhe">
+          <input type="text" name="medicamentos_qual" placeholder="Quais medicamentos ou hormônios?" style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;">
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="row cols-2">
-    <div class="field">
-      <label for="sono">Horas de sono por noite</label>
-      <input type="number" id="sono" name="sono" min="1" max="14" step="0.5" placeholder="ex: 7">
+    <!-- 06 — FINAL -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">06</div>
+        <div class="section-title">Reta Final</div>
+      </div>
+
+      <div class="field">
+        <label for="atrapalha">O que mais atrapalha seus resultados hoje?</label>
+        <textarea id="atrapalha" name="atrapalha" placeholder="Falta de tempo? Disciplina? Conhecimento? Solta tudo..." style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="meta">Meta física que deseja alcançar</label>
+        <textarea id="meta" name="meta" placeholder="Onde você quer chegar? Seja específico..." style="background:#14082a;color:#f4e8ff;-webkit-text-fill-color:#f4e8ff;"></textarea>
+      </div>
     </div>
-    <div class="field">
-      <label for="horario">Horário preferido pra treinar</label>
-      <select id="horario" name="horario">
-        <option value="">Selecione...</option>
-        <option>Manhã cedo (5h–8h)</option>
-        <option>Manhã (8h–11h)</option>
-        <option>Almoço (11h–14h)</option>
-        <option>Tarde (14h–18h)</option>
-        <option>Noite (18h–22h)</option>
-        <option>Madrugada</option>
-      </select>
+
+    <div class="submit-wrap">
+      <button type="submit" id="btn">Enviar</button>
+      <div class="submit-hint">// SEU FUTURO COMEÇA AGORA</div>
     </div>
-  </div>
-</div>
 
-<!-- 03 — TREINO -->
-<div class="section">
-  <div class="section-head">
-    <div class="section-num">03</div>
-    <div class="section-title">Treino</div>
-  </div>
-
-  <div class="field">
-    <label>Já treinou antes? <span class="req">*</span></label>
-    <div class="options">
-      <div class="opt"><input type="radio" id="treinou1" name="ja_treinou" value="Sim" required><label for="treinou1">Sim</label></div>
-      <div class="opt"><input type="radio" id="treinou2" name="ja_treinou" value="Não"><label for="treinou2">Não</label></div>
+    <div class="status success" id="status-ok">
+      ✓ ANAMNESE TRANSMITIDA<br>
+      <small style="font-family: 'Rajdhani', sans-serif; letter-spacing: normal; font-size: 1rem; opacity: 0.9; display: block; margin-top: 10px;">
+        Em breve seu treinador entra em contato. Bora pra cima.
+      </small>
     </div>
-  </div>
 
-  <div class="field">
-    <label for="dias">Dias por semana que consegue treinar <span class="req">*</span></label>
-    <select id="dias" name="dias_semana" required>
-      <option value="">Selecione...</option>
-      <option>1 dia</option>
-      <option>2 dias</option>
-      <option>3 dias</option>
-      <option>4 dias</option>
-      <option>5 dias</option>
-      <option>6 dias</option>
-      <option>7 dias</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label>Possui alguma lesão ou dor?</label>
-    <div class="options">
-      <div class="opt"><input type="radio" id="lesao1" name="lesao" value="Sim" data-toggle="lesao-detalhe"><label for="lesao1">Sim</label></div>
-      <div class="opt"><input type="radio" id="lesao2" name="lesao" value="Não" data-toggle="lesao-detalhe"><label for="lesao2">Não</label></div>
+    <div class="status error" id="status-err">
+      ✗ ERRO NA TRANSMISSÃO<br>
+      <small style="font-family: 'Rajdhani', sans-serif; letter-spacing: normal; font-size: 1rem; opacity: 0.9; display: block; margin-top: 10px;">
+        Tenta novamente em alguns segundos.
+      </small>
     </div>
-    <div class="conditional" id="lesao-detalhe">
-      <input type="text" name="lesao_qual" placeholder="Qual lesão ou dor? Onde?">
-    </div>
-  </div>
-
-  <div class="field">
-    <label>Onde treina?</label>
-    <div class="options">
-      <div class="opt"><input type="radio" id="local1" name="local" value="Academia"><label for="local1">Academia</label></div>
-      <div class="opt"><input type="radio" id="local2" name="local" value="Casa"><label for="local2">Casa</label></div>
-      <div class="opt"><input type="radio" id="local3" name="local" value="Ar livre"><label for="local3">Ar livre</label></div>
-    </div>
-  </div>
-</div>
-
-<!-- 04 — ALIMENTAÇÃO -->
-<div class="section">
-  <div class="section-head">
-    <div class="section-num">04</div>
-    <div class="section-title">Alimentação</div>
-  </div>
-
-  <div class="field">
-    <label for="refeicoes">Quantas refeições por dia?</label>
-    <select id="refeicoes" name="refeicoes">
-      <option value="">Selecione...</option>
-      <option>1–2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6+</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label for="dificuldade">Tem dificuldade pra comer muito ou pouco?</label>
-    <textarea id="dificuldade" name="dificuldade_comer" placeholder="Conte um pouco sobre sua relação com a comida..."></textarea>
-  </div>
-
-  <div class="field">
-    <label>Restrição alimentar ou alergia?</label>
-    <div class="options">
-      <div class="opt"><input type="radio" id="rest1" name="restricao" value="Sim" data-toggle="rest-detalhe"><label for="rest1">Sim</label></div>
-      <div class="opt"><input type="radio" id="rest2" name="restricao" value="Não" data-toggle="rest-detalhe"><label for="rest2">Não</label></div>
-    </div>
-    <div class="conditional" id="rest-detalhe">
-      <input type="text" name="restricao_qual" placeholder="Qual restrição ou alergia?">
-    </div>
-  </div>
-
-  <div class="field">
-    <label for="gosta">Alimentos que gosta</label>
-    <textarea id="gosta" name="alimentos_gosta" placeholder="Liste os alimentos que você ama..."></textarea>
-  </div>
-
-  <div class="field">
-    <label for="nao_gosta">Alimentos que não gosta</label>
-    <textarea id="nao_gosta" name="alimentos_nao_gosta" placeholder="Liste os alimentos que detesta..."></textarea>
-  </div>
-
-  <div class="field">
-    <label>Consome álcool?</label>
-    <div class="options">
-      <div class="opt"><input type="radio" id="alc1" name="alcool" value="Sim"><label for="alc1">Sim</label></div>
-      <div class="opt"><input type="radio" id="alc2" name="alcool" value="Não"><label for="alc2">Não</label></div>
-      <div class="opt"><input type="radio" id="alc3" name="alcool" value="Socialmente"><label for="alc3">Socialmente</label></div>
-    </div>
-  </div>
-</div>
-
-<!-- 05 — SAÚDE -->
-<div class="section">
-  <div class="section-head">
-    <div class="section-num">05</div>
-    <div class="section-title">Saúde</div>
-  </div>
-
-  <div class="field">
-    <label>Possui algum problema de saúde?</label>
-    <div class="options">
-      <div class="opt"><input type="radio" id="prob1" name="problema_saude" value="Sim" data-toggle="prob-detalhe"><label for="prob1">Sim</label></div>
-      <div class="opt"><input type="radio" id="prob2" name="problema_saude" value="Não" data-toggle="prob-detalhe"><label for="prob2">Não</label></div>
-    </div>
-    <div class="conditional" id="prob-detalhe">
-      <input type="text" name="problema_qual" placeholder="Qual problema de saúde?">
-    </div>
-  </div>
-
-  <div class="field">
-    <label>Usa medicamentos ou hormônios?</label>
-    <div class="options">
-      <div class="opt"><input type="radio" id="med1" name="medicamentos" value="Sim" data-toggle="med-detalhe"><label for="med1">Sim</label></div>
-      <div class="opt"><input type="radio" id="med2" name="medicamentos" value="Não" data-toggle="med-detalhe"><label for="med2">Não</label></div>
-    </div>
-    <div class="conditional" id="med-detalhe">
-      <input type="text" name="medicamentos_qual" placeholder="Quais medicamentos ou hormônios?">
-    </div>
-  </div>
-</div>
-
-<!-- 06 — FINAL -->
-<div class="section">
-  <div class="section-head">
-    <div class="section-num">06</div>
-    <div class="section-title">Reta Final</div>
-  </div>
-
-  <div class="field">
-    <label for="atrapalha">O que mais atrapalha seus resultados hoje?</label>
-    <textarea id="atrapalha" name="atrapalha" placeholder="Falta de tempo? Disciplina? Conhecimento? Solta tudo..."></textarea>
-  </div>
-
-  <div class="field">
-    <label for="meta">Meta física que deseja alcançar</label>
-    <textarea id="meta" name="meta" placeholder="Onde você quer chegar? Seja específico..."></textarea>
-  </div>
-</div>
-
-<div class="submit-wrap">
-  <button type="submit" id="btn">Enviar</button>
-  <div class="submit-hint">// SEU FUTURO COMEÇA AGORA</div>
-</div>
-
-<div class="status success" id="status-ok">
-  ✓ ANAMNESE TRANSMITIDA<br>
-  <small style="font-family: 'Rajdhani', sans-serif; letter-spacing: normal; font-size: 1rem; opacity: 0.9; display: block; margin-top: 10px;">
-    Em breve seu treinador entra em contato. Bora pra cima.
-  </small>
-</div>
-
-<div class="status error" id="status-err">
-  ✗ ERRO NA TRANSMISSÃO<br>
-  <small style="font-family: 'Rajdhani', sans-serif; letter-spacing: normal; font-size: 1rem; opacity: 0.9; display: block; margin-top: 10px;">
-    Tenta novamente em alguns segundos.
-  </small>
-</div>
-```
-
   </form>
 
   <footer>
-    Guilherme Baima // Anamnese v1.2
+    Guilherme Baima // Anamnese v1.3
   </footer>
 </div>
 
@@ -892,6 +885,5 @@ button[type=“submit”] { font-size: 1.3rem; padding: 16px 40px; }
     }
   });
 </script>
-
 </body>
 </html>
